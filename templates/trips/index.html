@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Trips</h1>
+
+{% for trip in trips %}
+
+<section>
+ 
+    <h3> {{ location.name }} </h3>
+        <h2>{{ location.type }} </h2>
+        <p> {{ location.info}} </p>
+        <a href="/locations/{{ location.id }}"> View Cities </a>
+</section>
+{% endfor %}
+
+{% endblock %}

@@ -9,3 +9,20 @@ def save(location):
     results = run_sql(sql,values)
     location.id = results[0]['id']
     return location
+
+def select_all():
+    locations = []
+    sql = "SELECT * FROM locations"
+    results = run_sql(sql)
+    for result in results:
+        location = Location(result["name"],result["type"], result["info"], result["visited"], result["id"])
+        locations.append(location)
+    return locations
+
+
+def select(id):
+    sql = "SELECT * FROM locations WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    location = Location(result["name"],result["type"], result["info"], result["visited"], result["id"])
+    return location
