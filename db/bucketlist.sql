@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS cities;
 
 CREATE TABLE users ( 
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
+    username VARCHAR(255),
     age INT,
     interests TEXT
 
@@ -13,18 +13,19 @@ CREATE TABLE users (
 
 CREATE TABLE locations (
     id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
     city_id INT REFERENCES cities(id),
     type VARCHAR(255),
-    visited BOOLEAN,
-)
+    visited BOOLEAN
+);
 
 CREATE TABLE cities (
     id SERIAL PRIMARY KEY,
     name VARCHAR (255),
     info TEXT
-)
+);
 
-CREATE TABLE visits (
+CREATE TABLE trips (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     location_id INT REFERENCES locations(id) ON DELETE CASCADE,
