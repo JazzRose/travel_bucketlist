@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS trips;
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS locations;
 DROP TABLE IF EXISTS cities;
+DROP TABLE IF EXISTS locations;
 
 CREATE TABLE users ( 
     id SERIAL PRIMARY KEY,
@@ -10,20 +10,21 @@ CREATE TABLE users (
     interests TEXT
 
 );
+CREATE TABLE locations (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    type VARCHAR(255),
+    info TEXT,
+    visited BOOLEAN
+);
 
 CREATE TABLE cities (
     id SERIAL PRIMARY KEY,
     name VARCHAR (255),
+    location_id INT REFERENCES locations(id),
     info TEXT
 );
 
-CREATE TABLE locations (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    city_id INT REFERENCES cities(id),
-    type VARCHAR(255),
-    visited BOOLEAN
-);
 
 CREATE TABLE trips (
     id SERIAL PRIMARY KEY,
