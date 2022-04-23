@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update a Location</h2>
+
+<form action="/locations/{{ location.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ location.name }}">
+    </div>
+    <div>
+        <label for="name">Type:</label>
+        <input type="text" id="type" name="type" value="{{ location.type }}">
+    </div>
+    <div>
+        <label for="name">Type:</label>
+        <input type="text" id="info" name="info" value="{{ location.info}}">
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

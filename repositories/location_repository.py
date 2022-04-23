@@ -26,3 +26,8 @@ def select(id):
     result = run_sql(sql, values)[0]
     location = Location(result["name"],result["type"], result["info"], result["visited"], result["id"])
     return location
+
+def update(location):
+    sql = "UPDATE locations SET (name,type,info) = (%s,%s,%s) WHERE id = %s"
+    values = [location.name,location.type,location.info,location.id]
+    run_sql(sql,values)

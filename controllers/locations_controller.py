@@ -31,3 +31,22 @@ def create_location():
     new_location = Location(name,type,info)
     location_repository.save(new_location)
     return redirect("/locations")
+
+# EDIT LOCATION
+
+@locations_blueprint.route("/locations/<id>/edit")
+def edit_location(id):
+    location = location_repository.select(id)
+    return render_template("/locations/edit.html", location = location)
+
+# SUBMIT EDITED LOCATION
+
+@locations_blueprint.route("/locations/<id>",methods = ['POST'])
+def update_location(id):
+    name = request.form["name"]
+    type = request.form["type"]
+    info = request.form["info"]
+    visited = False
+    location = Location(name,type,info,visited, id)
+    location_repository.update(location)
+    return redirect("/locations")

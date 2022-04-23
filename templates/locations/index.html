@@ -14,7 +14,12 @@
     <h2> {{ location.name }} </h2>
         <h3>{{ location.type }} </h3>
         <p> {{ location.info}} </p>
-        <a href="/locations/{{ location.id }}"> View Cities </a>
+        <div>
+           <a href="/locations/{{ location.id }}/cities"> View Cities </a>
+        </div>
+        <div>
+            <a href="/locations/{{ location.id }}/edit"> Edit Location </a>
+        </div>
 </section>
 {% endfor %}
 
