@@ -11,18 +11,18 @@ CREATE TABLE users (
 
 );
 
+CREATE TABLE cities (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR (255),
+    info TEXT
+);
+
 CREATE TABLE locations (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     city_id INT REFERENCES cities(id),
     type VARCHAR(255),
     visited BOOLEAN
-);
-
-CREATE TABLE cities (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR (255),
-    info TEXT
 );
 
 CREATE TABLE trips (
