@@ -1,9 +1,10 @@
+from flask import Flask, render_template
 app = Flask(__name__)
 
-app.register_blueprint(humans_blueprint)
-app.register_blueprint(zombies_blueprint)
-app.register_blueprint(zombie_types_blueprint)
-app.register_blueprint(bitings_blueprint)
+app.register_blueprint(users_blueprint)
+app.register_blueprint(cities_blueprint)
+app.register_blueprint(locations_blueprint)
+app.register_blueprint(trips_blueprint)
 
 @app.route("/")
 def main():
