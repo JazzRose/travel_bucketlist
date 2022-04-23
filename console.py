@@ -2,6 +2,7 @@ from models.user import User
 import repositories.user_repository as user_repository
 
 from models.trip import Trip
+import repositories.trip_repository as trip_repository
 
 from models.city import City
 import repositories.city_repository as city_repository
@@ -13,6 +14,7 @@ import repositories.location_repository as location_repository
 # USERS
 user1 = User("Jimbo123", 28, "Beach, Cusine, Backpacking")
 user_repository.save(user1)
+
 user2 = User("BiminiBabes", 32, "Hot Climate, 5 Star, Wildllife")
 user_repository.save(user2)
 
@@ -36,4 +38,10 @@ city_repository.save(city2)
 city3 = City("Mexico City", "Mexico City is, and has always been, the sun in the Mexican solar system. Though much-maligned in the past, these days the city is cleaning up its act. Revamped public spaces are springing back to life, the culinary scene is exploding and a cultural renaissance is flourishing.",location2)
 city_repository.save(city3)
 
+# TRIPS
 
+trip1 = Trip(user1,city1,"Loved HaNoi! Make sure to try the local fresh beer and visit Hoan Kiem Lake!",5,"12/9/2012")
+trip_repository.save(trip1)
+
+trip2 = Trip(user2,city3,"Chilling in my 5 Star hotel in the sunshine was great! Enjoyed the tequila and partying, but no space on the airport suttle for my shoe collection",3,"20/7/2015")
+trip_repository.save(trip2)

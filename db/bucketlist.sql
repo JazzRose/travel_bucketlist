@@ -29,8 +29,8 @@ CREATE TABLE cities (
 CREATE TABLE trips (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
-    location_id INT REFERENCES locations(id) ON DELETE CASCADE,
+    city_id INT REFERENCES cities(id) ON DELETE CASCADE,
     review TEXT,
     rating INT,
     date VARCHAR(255)
-);
+)
