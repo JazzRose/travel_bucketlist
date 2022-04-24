@@ -15,7 +15,7 @@ def select_all():
     results = run_sql(sql)
     for result in results:
         location = location_repository.select(result["location_id"])
-        city = City(result["name"], location, result["id"])
+        city = City(result["name"], result["info"],location, result["id"])
         city_list.append(city)
     return city_list
 
