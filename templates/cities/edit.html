@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update a Location</h2>
+
+<form action="/cities/{{ city.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ city.name }}">
+    </div>
+    <div>
+        <label for="location">Location:</label>
+        <select name="location_id" id="location">
+            {% for location in locations %}
+            <option value="{{ location.id }}" {% if location.id == city.location.id %} selected {% endif %}>
+                {{ location.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="info"></label>
+        <textarea  id="info" name="info" value="{{ city.info }}"></textarea>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

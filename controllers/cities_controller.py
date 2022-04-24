@@ -33,21 +33,22 @@ def create_city():
     location_repository.save(new_city)
     return redirect("/cities")
 
-# # EDIT LOCATION
+# EDIT CITY
 
-# @locations_blueprint.route("/locations/<id>/edit")
-# def edit_location(id):
-#     location = location_repository.select(id)
-#     return render_template("/locations/edit.html", location = location)
+@cities_blueprint.route("/cities/<id>/edit")
+def edit_city(id):
+    city = city_repository.select(id)
+    locations = location_repository.select_all()
+    return render_template("/cities/edit.html", city = city, locations = locations)
 
-# # SUBMIT EDITED LOCATION
+# SUBMIT EDITED CITY
 
-# @locations_blueprint.route("/locations/<id>",methods = ['POST'])
-# def update_location(id):
-#     name = request.form["name"]
-#     type = request.form["type"]
-#     info = request.form["info"]
-#     visited = False
-#     location = Location(name,type,info,visited, id)
-#     location_repository.update(location)
-#     return redirect("/locations")
+@cities_blueprint.route("/citiess/<id>",methods = ['POST'])
+def update_location(id):
+    name = request.form["name"]
+    info = request.form["info"]
+    location_id = request.form["location_id"]
+    location = location_repository.select(location_id)
+    city = City(name,info,location)
+    location_repository.update(city)
+    return redirect("/cities")

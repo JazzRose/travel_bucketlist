@@ -7,7 +7,7 @@ from controllers.cities_controller import cities_blueprint
 # app.register_blueprint(users_blueprint)
 app.register_blueprint(cities_blueprint)
 app.register_blueprint(locations_blueprint)
-# app.register_blueprint(trips_blueprint)
+app.register_blueprint(trips_blueprint)
 
 @app.route("/")
 def main():
