@@ -1,17 +1,18 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% block content %}
-<h1>Trips</h1>
+
+<h2>Trips</h2>
 
 {% for trip in trips %}
 
 <section>
- 
-    <h3> {{ location.name }} </h3>
-        <h2>{{ location.type }} </h2>
-        <p> {{ location.info}} </p>
-        <a href="/locations/{{ location.id }}"> View Cities </a>
-</section>
-{% endfor %}
+    <h3>{{ trip.username.name }} visited {{ trip.city.name }} on {{  trip.date }}</h3>  
+    {{ trip.review }}
+    {{ trip.rating }}
+    <a href="/trips/{{ trip.id }}/edit">Edit</a>
 
+    </form>
+</section>
+
+{% endfor %}
 {% endblock %}
