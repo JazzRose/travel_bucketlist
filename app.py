@@ -1,8 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 app = Flask(__name__, template_folder='templates')
 
 from controllers.locations_controller import locations_blueprint
 from controllers.cities_controller import cities_blueprint
+from controllers.trips_controller import trips_blueprint
 
 # app.register_blueprint(users_blueprint)
 app.register_blueprint(cities_blueprint)

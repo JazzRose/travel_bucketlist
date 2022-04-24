@@ -18,7 +18,7 @@ def save (trip):
     return trip
 
 def select_all():
-    trips = {}
+    trips = []
     sql = "SELECT * from trips"
     results = run_sql(sql)
     

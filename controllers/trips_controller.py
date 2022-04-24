@@ -17,7 +17,7 @@ def trips():
     trips = trip_repository.select_all()
     return render_template("trips/index.html", trips = trips)
 
-@trips_blueprint.route("trips/new")
+@trips_blueprint.route("/trips/new")
 def new_trip():
     users = user_repository.select_all()
     cities = city_repository.select_all()
@@ -34,4 +34,4 @@ def create_trip():
     city = city_repository.select(city_id)
     new_trip = Trip(user,city,review,rating,date)
     trip_repository.save(new_trip)
-    return redirect("/bitings")
+    return redirect("/trips")

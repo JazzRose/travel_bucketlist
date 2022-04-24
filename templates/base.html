@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
 </head>
 <body>
     <header>
         <h3>BucketList</h3>
         <nav>
-           Navbar placeholder
+           <ul>
+               <li>
+                   <a href ="/locations">Locations</a>
+               </li>
+                <li>
+                    <a href ="/cities">Cities</a>
+                </li>
+                <li>
+                    <a href ="/trips">My Completed Trips</a>
+                </li>
         </nav>
     </header>
-    <div class="container">
+    <div class="mainbody">
         {% block content %}
         {% endblock %}
     </div>

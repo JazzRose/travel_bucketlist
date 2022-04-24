@@ -6,21 +6,21 @@
     <a href="/cities/new">New City</a>
 </section>
 
+<section class = list>
 {% for city in city_list %}
 
-<section>
- 
-    <h2> {{ city.name }} </h2>
-        <h3>{{ city.info }} </h3>
-        <p> {{ city.location.name }} </p>
-        <div>
-  
-        </div>
-</section>
-<div>
-    <a href="/cities/{{ city.id }}/edit"> Edit City </a>
+
+<div class = "index">
+            <h2> {{ city.name }} </h2>
+            <h3>{{ city.info }} </h3>
+            <p> {{ city.location.name }} </p>
+            <div>
+                <a href="/cities/{{ city.id }}/edit"> Edit City </a>
+            </div>
 </div>
-</section>
+
 {% endfor %}
+
+</section>
 
 {% endblock %}
