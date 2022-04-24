@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <a href="/cities/new">New City</a>
+</section>
+
+{% for city in city_list %}
+
+<section>
+ 
+    <h2> {{ city.name }} </h2>
+        <h3>{{ city.info }} </h3>
+        <p> {{ city.location.name }} </p>
+        <div>
+  
+        </div>
+</section>
+{% endfor %}
+
+{% endblock %}

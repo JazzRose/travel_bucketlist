@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Locations</h1>
+<h1>BucketList Locations</h1>
 
 <section>
     <a href="/locations/new">New Location</a>
@@ -10,7 +10,7 @@
 {% for location in locations %}
 
 <section>
- 
+ <img src = "/Users/jasminemills/CodeClan_work/Project Work/travel_bucketlist/static/locations/{{ location.name }}.jpg" alt = "Vietnam" width ="200" height = "150">
     <h2> {{ location.name }} </h2>
         <h3>{{ location.type }} </h3>
         <p> {{ location.info}} </p>
@@ -22,5 +22,7 @@
         </div>
 </section>
 {% endfor %}
+<hr>
+<h1>BucketList Cities</h1>
 
 {% endblock %}

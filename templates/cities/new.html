@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>New City</h1>
+
+<form action ="/cities" method = "POST">
+    <label for ="name"></label>
+    <input type ="text" name = "name" placeholder = "Name"> 
+    <div>
+        <label for="location">Location:</label>
+        <select name="location_id" id="location">
+            {% for location in locations %}
+            <option value="{{ location.id }}">
+                {{ location.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <label for ="info"></label>
+    <input type ="textarea" name = "info" placeholder = "City Info"> 
+    <input type = "submit">
+</form>
+
+{% endblock %}
