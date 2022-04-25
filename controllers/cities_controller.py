@@ -2,9 +2,13 @@ from flask import Blueprint, Flask, redirect, render_template,request
 
 from models.location import Location
 from models.city import City
+from models.user import User
+from models.trip import Trip
 
 import repositories.location_repository as location_repository
 import repositories.city_repository as city_repository
+import repositories.user_repository as user_repository
+import repositories.trip_repository as trip_repository
 
 cities_blueprint = Blueprint("cities", __name__)
 
@@ -53,3 +57,24 @@ def update_city(id):
     city = City(name,info,location,id)
     city_repository.update(city)
     return redirect("/cities")
+
+# REVIEW CITY
+
+@cities_blueprint.route("/cities/<id>/trip")
+def review_city(id):
+    city = city_repository.select(id)
+    users = user_repository.select_all()
+    return render_template("/cities/trip.html", city = city, users= users)
+
+@cities_blueprint.route("/cities/trip", methods = ['POST'])
+def submit_review():
+    user_id = request.form ["user_id"]
+    city_id = request.form[("city_id")]
+    review = request.form["review"]
+    rating = request.form["rating"]
+    date = request.form["date"]
+    user = user_repository.select(user_id)
+    city = city_repository.select(city_id)
+    trip = Trip(user,city,review,rating,date)
+    trip_repository.save(trip)
+    return redirect("/trips")

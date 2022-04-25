@@ -41,14 +41,14 @@ def select (id):
 
 def update(trip):
     sql = "UPDATE trips SET (user_id,city_id,review,rating,date) = (%s, %s, %s, %s, %s) WHERE id = %s"
-    values = [trip.user_id, trip.city_id,trip.review,trip.rating,trip.date]
+    values = [trip.user.id, trip.city.id,trip.review,trip.rating,trip.date]
     run_sql(sql, values)
 
 def top_trips():
     sql = "SELECT city_id, AVG(rating) as avg_amount FROM trips GROUP by city_id ORDER BY avg_amount DESC"
     results = run_sql(sql)
     top_results = results[0:3]
-    for result in top_results:
-        trip = Trip(user,city,row['review'],row['rating'],row['date'],row['id'])
-        top_results.append(trip)
+    # for result in top_results:
+    #     trip = Trip(result['user'],result['city'],result['review'],result['avg_rating'],result['date'],result['id'])
+    #     top_results.append(trip)
     return top_results

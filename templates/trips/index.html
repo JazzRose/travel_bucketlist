@@ -18,5 +18,14 @@
     {% endfor %}
 
 </section>
+<hr>
+<h2>Top Rated Trips</h2>
+<section class = list>
 
+    {% for trip in top_results %}
+
+    {{ trip.city_id }} {{ trip.avg_amount }}
+
+    {% endfor %}
+    </section>
 {% endblock %}

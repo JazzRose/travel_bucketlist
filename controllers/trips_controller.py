@@ -57,10 +57,10 @@ def update_trip(id):
     user = user_repository.select(user_id)
     city = city_repository.select(city_id)
     trip = Trip(user,city,review,rating,date,id)
-    city_repository.update(trip)
+    trip_repository.update(trip)
     return redirect("/trips")
 
 @trips_blueprint.route("/trips/rating")
-def get_average():
-    top_trips = trip_repository.top_trips()
-    return render_template("/trips.html", top_trips=top_trips)
+def top_results():
+    top_results = trip_repository.top_trips()
+    return render_template("/trips.html", top_results=top_results)
