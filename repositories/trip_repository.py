@@ -26,7 +26,7 @@ def select_all():
         user = user_repository.select(row['user_id'])
         city = city_repository.select(row['city_id'])
         trip = Trip(user,city,row['review'],row['rating'],row['date'],row['id'])
-        trips.append(trips)
+        trips.append(trip)
     return trips
 
 def select (id):

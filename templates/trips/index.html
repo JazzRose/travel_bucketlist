@@ -3,15 +3,20 @@
 
 <h2>Trips</h2>
 
+<section class = list>
 {% for trip in trips %}
 
-<section>
+    <div class = "index">
 
-    {{ trip.review }}
-    {{ trip.rating }}
-    <a href="/trips/{{ trip.id }}/edit">Edit</a>
+        {{ trip.user.username }} visited {{ trip.city.name }}
+        {{ trip.date }}
+        {{ trip.review }}
+        {{ trip.rating }}
+        <a href="/trips/{{ trip.id }}/edit">Edit</a>
+    </div>
+
+    {% endfor %}
 
 </section>
 
-{% endfor %}
 {% endblock %}

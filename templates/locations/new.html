@@ -3,13 +3,13 @@
 {% block content %}
 <h1>New Location</h1>
 
-<form action ="/locations" method = "POST">
+<form class = submitform action ="/locations" method = "POST">
     <label for ="name"></label>
     <input type ="text" name = "name" placeholder = "Name"> 
     <label for ="type"></label>
     <input type ="text" name = "type" placeholder = "Type Of Break"> 
     <label for ="info"></label>
-    <input type ="textarea" name = "info" placeholder = "Location info"> 
+    <input type ="textarea" rows="10" cols="50" name = "info" placeholder = "Location info"> </textarea>
     <input type = "submit">
 </form>
 

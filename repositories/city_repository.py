@@ -24,5 +24,11 @@ def select(id):
     values = [id]
     result = run_sql(sql, values)[0]
     location = location_repository.select(result["location_id"])
-    city = City(result["name"], location, result["id"])
+    city = City(result["name"], result["info"] ,location, result["id"])
     return city
+
+
+def update(city):
+    sql = "UPDATE cities SET (name, info, location_id) = (%s, %s, %s) WHERE id = %s"
+    values = [city.name, city.info, city.location.id, city.id]
+    run_sql(sql, values)

@@ -19,7 +19,8 @@ def cities():
 
 @cities_blueprint.route("/cities/new")
 def new_city():
-    return render_template("cities/new.html")
+    locations = location_repository.select_all()
+    return render_template("cities/new.html", locations = locations)
 
 # NEW CITY SUBMIT
 
@@ -43,12 +44,12 @@ def edit_city(id):
 
 # SUBMIT EDITED CITY
 
-@cities_blueprint.route("/citiess/<id>",methods = ['POST'])
-def update_location(id):
+@cities_blueprint.route("/cities/<id>",methods = ['POST'])
+def update_city(id):
     name = request.form["name"]
     info = request.form["info"]
     location_id = request.form["location_id"]
     location = location_repository.select(location_id)
-    city = City(name,info,location)
-    location_repository.update(city)
+    city = City(name,info,location,id)
+    city_repository.update(city)
     return redirect("/cities")
