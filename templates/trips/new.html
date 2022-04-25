@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>New Trip</h1>
+
+<form action ="/trips" method = "POST">
+    <div>
+        <label for="city">City:</label>
+        <select name="city_id" id="city">
+            {% for city in cities %}
+            <option value="{{ city.id }}">
+                {{ city.name }}
+            </option>
+            {% endfor %}
+        </select>
+        <label for="user">User:</label>
+        <select name="user_id" id="user">
+            {% for user in users %}
+            <option value="{{ user.id }}">
+                {{ user.username }}
+            </option>
+            {% endfor %}
+        </select>
+        <div>
+        <label for = "review">Review:</label>
+        <textarea name = "review"></textarea>
+        </div>
+        <div><
+        <label for="rating"> Rating:</label>
+        <input type="number" id="rating" name="rating" min="0" max="5">
+        </div>
+        <div>
+        <label for="date"> Date:</label>
+        <input type="text" id="date" name="date">
+        </div>
+    <input type = "submit">
+</form>
+
+{% endblock %}

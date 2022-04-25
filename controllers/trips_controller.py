@@ -21,7 +21,7 @@ def trips():
 def new_trip():
     users = user_repository.select_all()
     cities = city_repository.select_all()
-    return render_template ("trips/new.html")
+    return render_template ("trips/new.html", users = users, cities = cities)
 
 @trips_blueprint.route("/trips", methods = ['POST'])
 def create_trip():
@@ -35,3 +35,32 @@ def create_trip():
     new_trip = Trip(user,city,review,rating,date)
     trip_repository.save(new_trip)
     return redirect("/trips")
+
+# EDIT TRIP
+
+@trips_blueprint.route("/trips/<id>/edit")
+def edit_trip(id):
+    trip = trip_repository.select(id)
+    cities = city_repository.select_all()
+    users = user_repository.select_all()
+    return render_template("/trips/edit.html", cities = cities, users = users, trip = trip)
+
+# SUBMIT EDITED TRIP
+
+@trips_blueprint.route("/trips/<id>",methods = ['POST'])
+def update_trip(id):
+    user_id = request.form ["user_id"]
+    city_id = request.form["city_id"]
+    review = request.form["review"]
+    rating = request.form["rating"]
+    date = request.form["date"]
+    user = user_repository.select(user_id)
+    city = city_repository.select(city_id)
+    trip = Trip(user,city,review,rating,date,id)
+    city_repository.update(trip)
+    return redirect("/trips")
+
+@trips_blueprint.route("/trips/rating")
+def get_average():
+    top_trips = trip_repository.top_trips()
+    return render_template("/trips.html", top_trips=top_trips)

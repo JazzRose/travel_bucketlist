@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Cities</h1>
+
+<section>
+    <a href="/locations/new">New Location</a>
+</section>
+
+<section class = "list">
+{% for city in cities %}
+        <div class="index">
+                 <h2> {{ city.name }} </h2>
+                 <h3>{{ city.info }} </h3>
+                 
+        </div>    
+{% endfor %}
+</section> 
+<hr>
+
+{% endblock %}

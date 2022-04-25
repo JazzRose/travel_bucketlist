@@ -32,12 +32,12 @@ def update(location):
     values = [location.name,location.type,location.info,location.id]
     run_sql(sql,values)
 
-# def select_cities_in_location(id):
-#     cities = []
-#     sql = "SELECT cities.* FROM cities INNER JOIN locations ON locations.id = cities.location_id WHERE locations.id = %s"
-#     values = [id]
-#     results = run_sql(sql, values)
-#     for result in results:
-#         city = City(result["name"], result["info"], result["location"])
-#         cities.append(city)
-#     return cities
+def select_cities_in_location(id):
+    cities = []
+    sql = "SELECT cities.* FROM cities INNER JOIN locations ON locations.id = cities.location_id WHERE locations.id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    for result in results:
+        city = City(result["name"], result["info"], result["location_id"],result["id"])
+        cities.append(city)
+    return cities

@@ -51,7 +51,7 @@ def update_location(id):
     location_repository.update(location)
     return redirect("/locations")
 
-# @locations_blueprint.route("/locations<id>/cities")
-# def cities_in_location(id):
-#     cities = location_repository.select_cities_in_location(id)
-#     return render_template("/locations/cities.html", cities = cities)
+@locations_blueprint.route("/locations/<id>/cities")
+def cities_in_location(id):
+    cities = location_repository.select_cities_in_location(id)
+    return render_template("/locations/cities.html", cities = cities)

@@ -31,7 +31,7 @@ def create_city():
     location_id = request.form["location_id"]
     location = location_repository.select(location_id)
     new_city= City(name,info,location)
-    location_repository.save(new_city)
+    city_repository.save(new_city)
     return redirect("/cities")
 
 # EDIT CITY
