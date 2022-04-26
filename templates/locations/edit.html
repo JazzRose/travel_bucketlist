@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Update a Location</h2>
+<h1>Update a Location</h1>
 
 <form action="/locations/{{ location.id }}" method="POST">
     <div>
-        <label for="name">Name:</label>
+        <label for="name"></label>
         <input type="text" id="name" name="name" value="{{ location.name }}">
     </div>
     <div>
-        <label for="name">Type:</label>
+        <label for="type"></label>
         <input type="text" id="type" name="type" value="{{ location.type }}">
     </div>
     <div>
-        <label for="name">Type:</label>
-        <input type="text" id="info" name="info" value="{{ location.info}}">
+        <label for="info"></label>
+        <textarea id="info" name="info" cols="40" rows = 10 value="{{ location.info}}"></textarea>
     </div>
     <div>
         <input type="submit">

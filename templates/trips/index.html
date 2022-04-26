@@ -1,29 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
-<h1>Trips</h1>
-<div>
-    <a class = "buttonlink" href="/trips/new">New Trip</a>
-</div>
-<section class = list>
-{% for trip in trips %}
-
-    <div class = "index">
-        {% set imgUrl = "images/" + trip.city.name + ".jpg" %}
-        <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{trip.city.name}} width ="300" height = "200">
-
-        {{ trip.user.username }} visited {{ trip.city.name }}
-        {{ trip.date }}
-        {{ trip.review }}
-        {{ trip.rating }}
-        <a href="/trips/{{ trip.id }}/edit">Edit</a>
-    </div>
-
-    {% endfor %}
-
 </section>
-<hr>
-<h1>Top Rated Trips</h1>
+
+<h1>Top Rated Cities</h1>
 <section class = ratings>
     {% for city in top_citys %}
         <div class = ratingindexed>
@@ -36,7 +15,7 @@
     {% endfor %}
         
 </section>
-<section class = ratings>
+<section class = ratingsno>
     {% for rating in ratings%}
             <div class = ratingindexed>
 
@@ -44,4 +23,25 @@
             </div>
     {% endfor %}
  </section>
+ <hr>
+<h1>Trips</h1>
+<div>
+    <a class = "buttonlink" href="/trips/new">New Trip</a>
+</div>
+<section class = list>
+{% for trip in trips %}
+
+    <div class = "tripsindex">
+        {% set imgUrl = "images/" + trip.city.name + ".jpg" %}
+        <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{trip.city.name}} width ="300" height = "200">
+
+        <h3>{{ trip.user.username }} visited {{ trip.city.name }}</h3><br>
+        <h4>{{ trip.date }}</h4>
+        <p class = review >{{ trip.review }}</p>
+        <h4>{{ trip.rating }} Stars </h4>
+        <a href="/trips/{{ trip.id }}/edit">Edit</a>
+    </div>
+
+    {% endfor %}
+
 {% endblock %}
