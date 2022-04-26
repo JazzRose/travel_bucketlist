@@ -47,7 +47,20 @@ def update(trip):
 def top_trips():
     sql = "SELECT city_id, AVG(rating) as avg_amount FROM trips GROUP by city_id ORDER BY avg_amount DESC"
     results = run_sql(sql)
+   
     top_results = results[0:3]
+
+    top_citys = []
+    ratings = []
+
+    for result in top_results:
+        city_id = result['city_id']
+        city = city_repository.select(city_id)
+        top_citys.append(city)
+        rating = result['avg_amount']
+        ratings.append(rating)
+    return [top_citys, ratings]
+
     # for result in top_results:
     #     trip = Trip(result['user'],result['city'],result['review'],result['avg_rating'],result['date'],result['id'])
     #     top_results.append(trip)

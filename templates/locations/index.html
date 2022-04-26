@@ -10,7 +10,8 @@
 <section class = "list">
 {% for location in locations %}
         <div class="index">
-                <img src = "{{url_for('static', filename ='{{ location.name }}.jpg')}}" alt = "{{ location.name }}" width ="200" height = "150">
+            {% set imgUrl = "images/" + location.name + ".jpg" %}
+                <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{ location.name }} width ="300" height = "200">
                  <h2> {{ location.name }} </h2>
                  <h3>{{ location.type }} </h3>
                  <p> {{ location.info}} </p>
@@ -25,4 +26,4 @@
 </section> 
 <hr>
 
-{% endblock %}
+{% endblock %} {}

@@ -7,6 +7,8 @@
 {% for trip in trips %}
 
     <div class = "index">
+        {% set imgUrl = "images/" + trip.city.name + ".jpg" %}
+        <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{trip.city.name}} width ="300" height = "200">
 
         {{ trip.user.username }} visited {{ trip.city.name }}
         {{ trip.date }}
@@ -22,10 +24,17 @@
 <h2>Top Rated Trips</h2>
 <section class = list>
 
-    {% for trip in top_results %}
+    {% for city in top_citys %}
 
-    {{ trip.city_id }} {{ trip.avg_amount }}
+    Name:{{city.name}}
 
     {% endfor %}
+
+    {% for rating in ratings%}
+
+    {{rating}}
+
+    {% endfor %}
+
     </section>
 {% endblock %}

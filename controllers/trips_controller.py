@@ -15,7 +15,12 @@ trips_blueprint = Blueprint("trips",__name__)
 @trips_blueprint.route("/trips")
 def trips():
     trips = trip_repository.select_all()
-    return render_template("trips/index.html", trips = trips)
+    top_citys_and_ratings = trip_repository.top_trips()
+
+    top_citys = top_citys_and_ratings[0]
+    ratings = top_citys_and_ratings[1]
+
+    return render_template("trips/index.html", trips = trips, top_citys= top_citys, ratings=ratings)
 
 @trips_blueprint.route("/trips/new")
 def new_trip():
@@ -60,7 +65,3 @@ def update_trip(id):
     trip_repository.update(trip)
     return redirect("/trips")
 
-@trips_blueprint.route("/trips/rating")
-def top_results():
-    top_results = trip_repository.top_trips()
-    return render_template("/trips.html", top_results=top_results)

@@ -1,16 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <section>
     <a href="/cities/new">New City</a>
 </section>
+<div class="parallax"></div> 
 
 <section class = list>
 {% for city in city_list %}
 
 
-<div class = "index">
+    <div class = "index">
+        {% set imgUrl = "images/" + city.name + ".jpg" %}
+            <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{ city.name }} width ="300" height = "200">
             <h2> {{ city.name }} </h2>
             <p>{{ city.info }} </p>
             <p class = "locations"> {{ city.location.name }} </p>
@@ -20,10 +22,8 @@
             <div>
                 <a href="/cities/{{ city.id }}/trip"> Review City </a>
             </div>
-</div>
+    </div>
 
 {% endfor %}
-
 </section>
-
 {% endblock %}
