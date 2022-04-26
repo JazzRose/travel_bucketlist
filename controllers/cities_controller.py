@@ -78,3 +78,10 @@ def submit_review():
     trip = Trip(user,city,review,rating,date)
     trip_repository.save(trip)
     return redirect("/trips")
+
+# DELETE CITY
+
+@cities_blueprint.route("/cities/<id>/delete", methods=["POST"])
+def delete_location(id):
+    city_repository.delete(id)
+    return redirect("/cities")

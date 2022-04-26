@@ -65,3 +65,10 @@ def update_trip(id):
     trip_repository.update(trip)
     return redirect("/trips")
 
+
+# DELETE TRIP
+
+@trips_blueprint.route("/trips/<id>/delete", methods=["POST"])
+def delete_trip(id):
+    trip_repository.delete(id)
+    return redirect("/trips")

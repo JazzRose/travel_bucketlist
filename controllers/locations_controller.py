@@ -55,3 +55,13 @@ def update_location(id):
 def cities_in_location(id):
     cities = location_repository.select_cities_in_location(id)
     return render_template("/locations/cities.html", cities = cities)
+
+@locations_blueprint.route("/locations/<id>/delete", methods=["POST"])
+def delete_location(id):
+    location_repository.delete(id)
+    return redirect("/locations")
+
+@locations_blueprint.route("/locations/<id>/visited", methods = ["POST"])
+def mark_location_visited(id):
+    location_repository.mark_visited(id)
+    return redirect("/locations")

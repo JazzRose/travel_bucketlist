@@ -40,6 +40,9 @@
         <p class = review >{{ trip.review }}</p>
         <h4>{{ trip.rating }} Stars </h4>
         <a href="/trips/{{ trip.id }}/edit">Edit</a>
+        <form action="/trips/{{ trip.id }}/delete" method="POST">
+            <input type="submit" value="Delete">
+        </form>
     </div>
 
     {% endfor %}

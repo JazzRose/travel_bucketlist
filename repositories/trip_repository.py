@@ -61,7 +61,7 @@ def top_trips():
         ratings.append("{:.2f}".format(rating))
     return [top_citys, ratings]
 
-    # for result in top_results:
-    #     trip = Trip(result['user'],result['city'],result['review'],result['avg_rating'],result['date'],result['id'])
-    #     top_results.append(trip)
-    return top_results
+def delete(id):
+    sql = "DELETE FROM trips WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)

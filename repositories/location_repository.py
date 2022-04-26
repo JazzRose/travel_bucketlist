@@ -27,6 +27,11 @@ def select(id):
     location = Location(result["name"],result["type"], result["info"], result["visited"], result["id"])
     return location
 
+def delete(id):
+    sql = "DELETE FROM locations WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 def update(location):
     sql = "UPDATE locations SET (name,type,info) = (%s,%s,%s) WHERE id = %s"
     values = [location.name,location.type,location.info,location.id]
@@ -41,3 +46,9 @@ def select_cities_in_location(id):
         city = City(result["name"], result["info"], result["location_id"],result["id"])
         cities.append(city)
     return cities
+
+def mark_visited(id):
+    sql = "UPDATE locations SET visited = True WHERE id = %s"
+    values =[id]
+    run_sql(sql,values)
+

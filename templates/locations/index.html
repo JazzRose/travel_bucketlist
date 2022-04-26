@@ -20,11 +20,15 @@
                     
                         <a class = "tilebuttons" href="/locations/{{ location.id }}/edit"> Edit Location </a>
                     </div>
-        </div>    
+                    <form action="/locations/{{ location.id }}/delete" method="POST">
+                        <input type="submit" value="Delete">
+                    </form>
+                    <form action="/locations/{{ location.id }}/visited" method="POST">
+                        <input type="submit" value="Visited">
+                    </form>
+                </div>  
 {% endfor %}
 </section> 
 <hr>
-
-{% endblock %} {}
-
-{{location.name}}
+<h1>Locations Visited</h1>
+{% endblock %}
