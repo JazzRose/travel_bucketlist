@@ -3,6 +3,7 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-image: url(images/balloons.jpg);
+    margin:0
 }
 
 h1 {
@@ -15,6 +16,7 @@ h2 {
 
     text-align: center;
     color: #bc412b;
+    margin:0
 
 }
 
@@ -22,7 +24,8 @@ h3 {
 
     text-align: center;
     padding: 5px;
-    color: #dc602e
+    color: #dc602e;
+    margin:0
 }
 
 .locations{
@@ -58,12 +61,13 @@ h3 {
 
 .tilebuttons, .tilebuttons:visited{
 
-    justify-content: space-between;
-    display: inline;
-    padding: 10px;
-    margin-left: 15px;
+    display:flex;
+    justify-content: center;
+    padding: 5px;
     background-color: #d7b49e;
     border-radius: 10px;
+    text-decoration: none;
+    width:100px
 
 }
 
@@ -85,8 +89,45 @@ div.index{
     margin-bottom: 30px;
     display:flex;
     flex-direction: column;
+    align-items: stretch;
 }
 
+.cityindex{
+
+    margin: auto;
+    width: 40%;
+    border: 5px solid #d7b49e ;
+    flex-basis: 400px;
+    height: 600px;
+    background-color: white;
+    white-space: no-wrap;
+    margin-bottom: 30px;
+    display:flex;
+    flex-direction: column;
+}
+
+.ratings{
+
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex:none;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    align-items: stretch;
+    padding-top: 40px;
+}
+.ratingindexed{
+
+border-color: #05a8aa 2px;
+background-color: white;
+}
+
+.ratingimg{
+
+    border-color: #d7b49e;
+    border:5px
+}
 .infotext{
 
     display:block;

@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Trips</h2>
-
+<h1>Trips</h1>
+<div>
+    <a class = "buttonlink" href="/trips/new">New Trip</a>
+</div>
 <section class = list>
 {% for trip in trips %}
 
@@ -21,20 +23,25 @@
 
 </section>
 <hr>
-<h2>Top Rated Trips</h2>
-<section class = list>
-
+<h1>Top Rated Trips</h1>
+<section class = ratings>
     {% for city in top_citys %}
-
-    Name:{{city.name}}
+        <div class = ratingindexed>
+            {{city.name}}
+            <br>
+            {% set imgUrl = "images/" + city.name + ".jpg" %}
+            <img class = "ratingimg" src = "{{url_for('static', filename=imgUrl)}}" alt = {{ city.name }} width ="250" height = "180">
+        </div>
 
     {% endfor %}
-
+        
+</section>
+<section class = ratings>
     {% for rating in ratings%}
+            <div class = ratingindexed>
 
-    {{rating}}
-
+            {{rating}}/5
+            </div>
     {% endfor %}
-
-    </section>
+ </section>
 {% endblock %}

@@ -58,7 +58,7 @@ def top_trips():
         city = city_repository.select(city_id)
         top_citys.append(city)
         rating = result['avg_amount']
-        ratings.append(rating)
+        ratings.append("{:.2f}".format(rating))
     return [top_citys, ratings]
 
     # for result in top_results:

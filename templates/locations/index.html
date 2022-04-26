@@ -3,9 +3,9 @@
 {% block content %}
 <h1>BucketList Locations</h1>
 
-<section>
+<div>
     <a class = "buttonlink" href="/locations/new">New Location</a>
-</section>
+</div>
 
 <section class = "list">
 {% for location in locations %}
@@ -15,12 +15,12 @@
                  <h2> {{ location.name }} </h2>
                  <h3>{{ location.type }} </h3>
                  <p class = infotext> {{ location.info}} </p>
-                    <div class = "tilebuttons">
-                        <a href="/locations/{{ location.id }}/cities"> View Cities </a>
-                        <br>
+                    <div >
+                        <a class = "tilebuttons" href="/locations/{{ location.id }}/cities"> View Cities </a>
                     </div>
-                    <div class = "tilebuttons"
-                        <a href="/locations/{{ location.id }}/edit"> Edit Location </a>
+                    <br>
+                    <div>
+                        <a class = "tilebuttons" href="/locations/{{ location.id }}/edit"> Edit Location </a>
                     </div>
         </div>    
 {% endfor %}

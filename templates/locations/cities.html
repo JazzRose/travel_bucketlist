@@ -4,12 +4,14 @@
 <h1>Cities</h1>
 
 <section>
-    <a class="buttonlink" href="/locations/new">New Location</a>
+    <a class="buttonlink" href="/locations/new">New City</a>
 </section>
 
 <section class = "list">
 {% for city in cities %}
-        <div class="index">
+        <div class="cityindex">
+            {% set imgUrl = "images/" + city.name + ".jpg" %}
+                <img src = "{{url_for('static', filename=imgUrl)}} " alt = {{ city.name }} width ="400" height = "300">
                  <h2> {{ city.name }} </h2>
                  <h3>{{ city.info }} </h3>
                  
