@@ -89,9 +89,9 @@ h4 {
 
 div.index{
     margin: auto;
-    width: 20%;
+    width: 350px;
     border: 5px solid #d7b49e ;
-    flex-basis: 300px;
+    flex-basis: 350px;
     height: 500px;
     background-color: white;
     white-space: no-wrap;
@@ -266,3 +266,34 @@ input[type=text]:focus {
     background-color: lightblue;
   }
 
+/* PROFILE */
+
+.profile {
+
+    width: 210px;
+    float:left;
+    background-color:rgba(0,0,0,0.4);
+    color:#fff;
+    position: fixed;
+    left: 0px;
+    margin-top: 40px;
+}
+.profile > img{
+
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.profilegrid {
+
+    display:flex;
+    flex-direction:row;
+
+}
+
+.flexlists {
+
+    float:right;
+    padding-left: 200px;
+
+}

@@ -5,6 +5,7 @@ from models.city import City
 
 import repositories.location_repository as location_repository
 import repositories.city_repository as city_repository
+import repositories.user_repository as user_repository
 
 locations_blueprint = Blueprint("locations", __name__)
 
@@ -13,7 +14,8 @@ locations_blueprint = Blueprint("locations", __name__)
 @locations_blueprint.route("/locations")
 def locations():
     locations = location_repository.select_all()
-    return render_template("locations/index.html", locations = locations)
+    users = user_repository.select_all()
+    return render_template("locations/index.html", locations = locations, users = users)
 
 # NEW LOCATION
 
