@@ -41,7 +41,7 @@ def select (id):
 
 def update(trip):
     sql = "UPDATE trips SET (user_id,city_id,review,rating,date) = (%s, %s, %s, %s, %s) WHERE id = %s"
-    values = [trip.user.id, trip.city.id,trip.review,trip.rating,trip.date]
+    values = [trip.user.id, trip.city.id,trip.review,trip.rating,trip.date,trip.id]
     run_sql(sql, values)
 
 def top_trips():

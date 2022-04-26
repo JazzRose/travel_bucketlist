@@ -4,7 +4,7 @@
 <h1>BucketList Locations</h1>
 
 <section>
-    <a href="/locations/new">New Location</a>
+    <a class = "buttonlink" href="/locations/new">New Location</a>
 </section>
 
 <section class = "list">
@@ -14,12 +14,13 @@
                 <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{ location.name }} width ="300" height = "200">
                  <h2> {{ location.name }} </h2>
                  <h3>{{ location.type }} </h3>
-                 <p> {{ location.info}} </p>
-                    <div>
+                 <p class = infotext> {{ location.info}} </p>
+                    <div class = "tilebuttons">
                         <a href="/locations/{{ location.id }}/cities"> View Cities </a>
+                        <br>
                     </div>
-                    <div>
-                    <a href="/locations/{{ location.id }}/edit"> Edit Location </a>
+                    <div class = "tilebuttons"
+                        <a href="/locations/{{ location.id }}/edit"> Edit Location </a>
                     </div>
         </div>    
 {% endfor %}
@@ -27,3 +28,5 @@
 <hr>
 
 {% endblock %} {}
+
+{{location.name}}
