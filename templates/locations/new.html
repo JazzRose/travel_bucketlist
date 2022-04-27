@@ -2,15 +2,19 @@
 
 {% block content %}
 <h1>New Location</h1>
-
-<form class = submitform action ="/locations" method = "POST">
+<section class = "newform">
+<form action ="/locations" method = "POST">
     <label for ="name"></label>
+    <br>
     <input type ="text" name = "name" placeholder = "Name"> 
     <label for ="type"></label>
+    <br>
     <input type ="text" name = "type" placeholder = "Type Of Break"> 
     <label for ="info"></label>
-    <input type ="textarea" rows="10" cols="50" name = "info" placeholder = "Location info"> </textarea>
+    <br>
+    <textarea rows="10" cols="40" name = "info" placeholder = "Location info"> </textarea>
+    <br>
     <input type = "submit">
 </form>
-
+</section>
 {% endblock %}

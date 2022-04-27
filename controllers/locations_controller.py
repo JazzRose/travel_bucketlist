@@ -30,7 +30,7 @@ def create_location():
     name = request.form["name"]
     type = request.form["type"]
     info = request.form["info"]
-    new_location = Location(name,type,info)
+    new_location = Location(name,type,info,False)
     location_repository.save(new_location)
     return redirect("/locations")
 

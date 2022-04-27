@@ -2,6 +2,18 @@
 {% block content %}
 </section>
 
+<section class =profilegrid>
+<section class = profile>
+    {% set user = users[0] %}
+    <img src = "{{url_for('static', filename= 'images/Jimbo123.png')}}" alt = profilepic width ="150" height = "150">
+    <hr>
+    <h2>{{ user.username }}</h2>
+    <h2> {{ user.age }}</h2>
+    <p>{{ user.interests }}</p>
+
+</section>
+<div class = flexlists>
+
 <h1>Top Rated Cities</h1>
 <section class = ratings>
     {% for city in top_citys %}
@@ -39,12 +51,18 @@
         <h4>{{ trip.date }}</h4>
         <p class = review >{{ trip.review }}</p>
         <h4>{{ trip.rating }} Stars </h4>
-        <a href="/trips/{{ trip.id }}/edit">Edit</a>
-        <form action="/trips/{{ trip.id }}/delete" method="POST">
-            <input type="submit" value="Delete">
-        </form>
+        <div class = "buttons">
+            <a class = "tilebuttons" href="/trips/{{ trip.id }}/edit">Edit</a>
+            <form action="/trips/{{ trip.id }}/delete" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
     </div>
-
     {% endfor %}
+    </div>
+</div>
+</section>
+
+ 
 
 {% endblock %}

@@ -6,7 +6,6 @@ import repositories.user_repository as user_repository
 users_blueprint = Blueprint("users",__name__)
 
 # INDEX
-@users_blueprint.route("</username>")
-def humans():
-    humans = user_repository.select_all()
-    return render_template("humans/index.html", users=User)
+@users_blueprint.route("/")
+def home():
+    return render_template("index.html")

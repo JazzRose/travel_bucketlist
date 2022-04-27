@@ -15,7 +15,7 @@ CREATE TABLE locations (
     name VARCHAR(255),
     type VARCHAR(255),
     info TEXT,
-    visited BOOLEAN
+    visited BOOLEAN DEFAULT false
 );
 
 CREATE TABLE cities (
@@ -29,7 +29,7 @@ CREATE TABLE cities (
 CREATE TABLE trips (
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
-    city_id INT REFERENCES cities(id) ON DELETE CASCADE,
+    city_id INT REFERENCES cities(id),
     review TEXT,
     rating INT,
     date VARCHAR(255)

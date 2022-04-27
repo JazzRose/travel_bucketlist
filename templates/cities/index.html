@@ -3,29 +3,38 @@
 {% block content %}
 <h1>BucketList Cities</h1>
 
-<section>
-    <a class="buttonlist" href="/cities/new">New City</a>
-</section>
-
-<section class = list>
+<div>
+    <a class="buttonlink" href="/cities/new">New City</a>
+</div>
+<section class =profilegrid>
+    <section class = profile>
+        {% set user = users[0] %}
+        <img src = "{{url_for('static', filename= 'images/Jimbo123.png')}}" alt = profilepic width ="150" height = "150">
+        <hr>
+        <h2>{{ user.username }}</h2>
+        <h2> {{ user.age }}</h2>
+        <p>{{ user.interests }}</p>
+    
+    </section>
+    <div class = flexlists>
+    <section class = "list">
 {% for city in city_list %}
-
 
     <div class = "index">
         {% set imgUrl = "images/" + city.name + ".jpg" %}
-            <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{ city.name }} width ="300" height = "200">
+            <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{ city.name }} width ="350" height = "200">
             <h2> {{ city.name }} </h2>
             <p class = "infotext">{{ city.info }} </p>
             <p class = "locations"> {{ city.location.name }} </p>
-            <div>
-                <a href="/cities/{{ city.id }}/edit"> Edit City </a>
-            </div>
-            <div>
-                <a href="/cities/{{ city.id }}/trip"> Review City </a>
-            </div>
+            <div class = buttons>
+                <a class ="tilebuttons" href="/cities/{{ city.id }}/edit"> Edit City </a>
+            
+                <a class = "tilebuttons" href="/cities/{{ city.id }}/trip"> Review City </a>
+            
             <form action="/cities/{{ city.id }}/delete" method="POST">
                         <input type="submit" value="Delete">
             </form>
+        </div>
     </div>
 
 {% endfor %}

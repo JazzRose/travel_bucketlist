@@ -19,28 +19,48 @@
 <div class = flexlists>
 <section class = "list">
 {% for location in locations %}
+    {%if location.visited == False %}
         <div class="index">
             {% set imgUrl = "images/" + location.name + ".jpg" %}
                 <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{ location.name }} width ="350" height = "250">
                  <h2> {{ location.name }} </h2>
                  <h3>{{ location.type }} </h3>
                  <p class = infotext> {{ location.info}} </p>
-                    <div editcities >
+                    <div class ="buttons" >
                         <a class = "tilebuttons" href="/locations/{{ location.id }}/cities"> View Cities </a>
                     
                         <a class = "tilebuttons" href="/locations/{{ location.id }}/edit"> Edit Location </a>
+                    
+                        <form action="/locations/{{ location.id }}/delete" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                        <form action="/locations/{{ location.id }}/visited" method="POST">
+                            <input type="submit" value="Visited">
                     </div>
-                    <form action="/locations/{{ location.id }}/delete" method="POST">
-                        <input type="submit" value="Delete">
                     </form>
-                    <form action="/locations/{{ location.id }}/visited" method="POST">
-                        <input type="submit" value="Visited">
-                    </form>
-                </div>  
+                </div> 
+    {% endif %} 
 {% endfor %}
 </section> 
 <hr>
 <h1>Locations Visited</h1>
-{% endblock %}
+<section class = "list">
+    {% for location in locations %}
+        {%if location.visited == True %}
+            <div class="index">
+                {% set imgUrl = "images/" + location.name + ".jpg" %}
+                    <img src = "{{url_for('static', filename=imgUrl)}}" alt = {{ location.name }} width ="350" height = "250">
+                     <h2> {{ location.name }} </h2>
+                     <h3>{{ location.type }} </h3>
+                     <p class = infotext> {{ location.info}} </p>
+                        <div editcities >
+                            <a class = "tilebuttons" href="/locations/{{ location.id }}/cities"> View Cities </a>
+                        </div>
+                        </form>
+                    </div> 
+        {% endif %} 
+    {% endfor %}
+    </section> 
 </div>
 </section>
+{% endblock %}

@@ -2,8 +2,63 @@
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url(images/balloons.jpg);
+    background-image: url(images/Balloons.jpg);
+    background-size: cover ;
     margin:0
+}
+
+.titlepage {
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin:0
+}
+footer {
+
+    background-color:#05a8aa;
+    color:white;
+}
+
+
+.logo {
+
+    float:right;
+    background-color: #05a8aa;
+    width:1500px;
+}
+.homebuttons {
+    padding-top: 70px;
+    text-align: center;
+    padding-left: 450px;
+    height:300px;
+    display:flex;
+    flex-direction: column;
+
+}
+.home {
+
+    font-size: 50px;
+}
+.homebutton  {
+
+    padding: 10px;
+    background-color: white;
+    color: #d7b49e;
+    text-decoration: none;
+    font-size: 50px;
+    margin:30 px;
+    width: 50%;
+    justify-content: center;
+    border-radius: 10px;
+
+
+}
+.homedesc {
+    padding:15px;
+    font-size:20px;
+    margin:auto;
+    width:50%;
+    background-color:rgba(0,0,0,0.4);
+    color:#fff;
 }
 
 h1 {
@@ -70,16 +125,24 @@ h4 {
 
 .tilebuttons, .tilebuttons:visited{
 
+    padding: 10px;
+    background-color: #d7b49e;
+    color: white;
+    margin: 2px;
+    text-align:centre;
     display:flex;
     justify-content: center;
-    padding: 5px;
-    background-color: #d7b49e;
-    border-radius: 10px;
     text-decoration: none;
-    width:100px
+    border-color:#bc412b;
+
 
 }
 
+.buttons {
+
+    display: flex;
+
+}
 
 .tile {
     width: 250px;
@@ -96,6 +159,7 @@ div.index{
     background-color: white;
     white-space: no-wrap;
     margin-bottom: 30px;
+    margin-left:30px;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
@@ -240,16 +304,33 @@ li a {
 
 form {
 
-    width: 450px;
+    /* width: 450px; */
     margin: auto;
     background-color:white;
     border-radius:5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
 }
 
 form > div {
 
     padding:15px;
+}
+
+.newform {
+
+    display:flex;
+    flex-direction:column;
+    margin-left:30%;
+    margin-right:30%;
+    align-items: center;
+}
+
+label {
+
+    color:#05a8aa;
 }
 
 input[type=button] {
@@ -262,8 +343,37 @@ input[type=button] {
     cursor: pointer;
 }
 
+input[type=text] {
+
+    margin:6px;
+    justify-content:center;
+    align-items: center;
+    border:none;
+    border-bottom: 2px solid #b8dfb8 ;
+    padding: 5px;
+}
+input[type=select], [type=number] {
+ 
+    border:#b8dfb8;
+}
+textarea {
+
+    border: 2px solid #b8dfb8;
+    margin:10px
+}
 input[type=text]:focus {
     background-color: lightblue;
+
+}
+
+input[type=submit]{
+    display: inline;
+    padding: 10px;
+    margin:10px;
+    background-color: #b8dfb8;
+    border-radius: 10px;
+
+
   }
 
 /* PROFILE */
