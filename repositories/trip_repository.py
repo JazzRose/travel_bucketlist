@@ -50,16 +50,16 @@ def top_trips():
    
     top_results = results[0:3]
 
-    top_citys = []
+    top_cities = []
     ratings = []
 
     for result in top_results:
         city_id = result['city_id']
         city = city_repository.select(city_id)
-        top_citys.append(city)
+        top_cities.append(city)
         rating = result['avg_amount']
         ratings.append("{:.2f}".format(rating))
-    return [top_citys, ratings]
+    return [top_cities, ratings]
 
 def delete(id):
     sql = "DELETE FROM trips WHERE id = %s"

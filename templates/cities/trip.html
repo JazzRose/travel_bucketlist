@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>New Trip</h1>
+<h1>Review Trip</h1>
 <section class = "newform">
 <form action ="/cities/trip" method = "POST">
     <div>
-        <label for="city">{{ city.name }}</label>
+        <label for="city">City:</label>
+        <select name="city_id" id="city">
+            {% for city in cities %}
             <option value="{{ city.id }}">
+                {% if city.id == trip.city.id %} selected {% endif %}>
+                {{ city.name }}
             </option>
+            {% endfor %}
         </select>
         <label for="user">User:</label>
         <select name="user_id" id="user">

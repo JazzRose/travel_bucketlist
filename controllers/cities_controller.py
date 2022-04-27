@@ -70,7 +70,7 @@ def review_city(id):
 @cities_blueprint.route("/cities/trip", methods = ['POST'])
 def submit_review():
     user_id = request.form ["user_id"]
-    city_id = request.form[("city_id")]
+    city_id = request.form["city_id"]
     review = request.form["review"]
     rating = request.form["rating"]
     date = request.form["date"]

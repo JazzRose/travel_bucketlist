@@ -10,25 +10,30 @@
     <h2>{{ user.username }}</h2>
     <h2> {{ user.age }}</h2>
     <p>{{ user.interests }}</p>
+    <a class = "tilebuttons" href ="/locations">Locations</a>
+    <br>
+    <a class = "tilebuttons" href ="/cities">Cities</a>
+    <br>
+    <a class = "tilebuttons" href ="/trips">Trip Reviews</a>
+
 
 </section>
 <div class = flexlists>
 
 <h1>Top Rated Cities</h1>
 <section class = ratings>
-    {% for city in top_citys %}
+    {% for city in top_cities %}
         <div class = ratingindexed>
-            {{city.name}}
+            {{ city.name }}
             <br>
             {% set imgUrl = "images/" + city.name + ".jpg" %}
             <img class = "ratingimg" src = "{{url_for('static', filename=imgUrl)}}" alt = {{ city.name }} width ="250" height = "180">
         </div>
 
-    {% endfor %}
-        
+    {% endfor %}      
 </section>
 <section class = ratingsno>
-    {% for rating in ratings%}
+    {% for rating in ratings %}
             <div class = ratingindexed>
 
             {{rating}}/5
