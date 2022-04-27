@@ -1,5 +1,8 @@
-<h1>Edit Trip</h1>
+{% extends 'base.html' %}
 
+{% block content %}
+<h1>Edit Trip</h1>
+<section class = "newform">
 <form action ="/trips/{{ trip.id }}" method = "POST">
     <div>
         <label for="city">City:</label>
@@ -20,8 +23,8 @@
             {% endfor %}
         </select>
         <div>
-        <label for = "review">Review:</label>
-        <textarea name = "review"></textarea>
+        <label for = "review"></label>
+        <textarea rows = "10" cols = "40" name= "review" placeholder = review></textarea>
         </div>
         <div>
         <label for="rating"> Rating:</label>
@@ -33,3 +36,5 @@
         </div>
     <input type = "submit">
 </form>
+</section>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Update a Location</h2>
-
+<h1>Edit a City</h1>
+<section class = "newform">
 <form action="/cities/{{ city.id }}" method="POST">
     <div>
         <label for="name">Name:</label>
@@ -25,5 +25,5 @@
         <input type="submit">
     </div>
 </form>
-
+</section>
 {% endblock %}
