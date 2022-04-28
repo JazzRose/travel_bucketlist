@@ -21,7 +21,7 @@ CREATE TABLE locations (
 CREATE TABLE cities (
     id SERIAL PRIMARY KEY,
     name VARCHAR (255),
-    location_id INT REFERENCES locations(id),
+    location_id INT REFERENCES locations(id) ON DELETE CASCADE,
     info TEXT
 );
 

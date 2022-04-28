@@ -7,12 +7,9 @@
     <div>
         <label for="city">City:</label>
         <select name="city_id" id="city">
-            {% for city in cities %}
             <option value="{{ city.id }}">
-                {% if city.id == trip.city.id %} selected {% endif %}>
                 {{ city.name }}
             </option>
-            {% endfor %}
         </select>
         <label for="user">User:</label>
         <select name="user_id" id="user">
