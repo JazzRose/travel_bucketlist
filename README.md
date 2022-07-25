@@ -3,6 +3,15 @@ App for users to save countries that they would like to visit to a bucketlist. W
 
 ## Setup
 
+Note: This setup tutorial assumes that you already have installed a package manager like npm and the version control system git.
+Open your terminal.
+In your terminal, go to the folder where you want to save the app.
+Run the command git clone git@github.com:JazzRose/travel_bucketlist.git
+To install all the modules for the application run 'npm i'
+In the terminal, enter 'flask run' to start the application
+
+Optional: To get some pre-created users in the database run npm run seeds after the last command.
+
 ## Tech stack
 ### Core technologies:
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
