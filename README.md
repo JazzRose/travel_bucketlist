@@ -10,8 +10,6 @@ Run the command git clone git@github.com:JazzRose/travel_bucketlist.git
 To install all the modules for the application run 'npm i'
 In the terminal, enter 'flask run' to start the application
 
-Optional: To get some pre-created users in the database run npm run seeds after the last command.
-
 ## Tech stack
 ### Core technologies:
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
